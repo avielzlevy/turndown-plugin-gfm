@@ -9,8 +9,9 @@ export default defineConfig({
     lib: {
       entry: resolve(fileURLToPath(new URL('.', import.meta.url)), 'src/index.js'),
       name: 'TurndownPluginGfm',
-      fileName: 'index',
-      formats: ['es']
+      fileName: (format) => `index.${format}.js`,
+      formats: ['cjs', 'es']
+
     },
     rollupOptions: {
       external: ['turndown'],
@@ -27,7 +28,7 @@ export default defineConfig({
             // Read the TypeScript declaration file
             const dtsPath = resolve(fileURLToPath(new URL('.', import.meta.url)), 'src/index.d.ts')
             const dtsContent = readFileSync(dtsPath, 'utf-8')
-            
+
             this.emitFile({
               type: 'asset',
               fileName: 'index.d.ts',
@@ -41,7 +42,7 @@ export default defineConfig({
     sourcemap: true,
     minify: false // Keep readable for debugging
   },
-  
+
   // Test configuration
   test: {
     globals: true,

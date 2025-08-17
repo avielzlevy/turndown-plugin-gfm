@@ -8,8 +8,8 @@
   "exports": {
     ".": {
       "types": "./lib/index.d.ts",
-      "import": "./lib/index.js",
-      "require": "./lib/index.js",
+      "import": "./lib/index.es.js",
+      "require": "./lib/index.cjs.js",
       "default": "./lib/index.js"
     }
   },
